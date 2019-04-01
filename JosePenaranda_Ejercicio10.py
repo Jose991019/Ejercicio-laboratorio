@@ -30,7 +30,6 @@ SSE1=np.matmul(np.identity(n)-Hhat,Y)
 SSE=np.matmul(YT,SSE1)
 
 Rsq=SSR[0,0]/SST[0,0]
-print(Rsq)
 
 sigma2=SSE[0,0]/(n-1.)
 sigmamatrix=sigma2*Inv
@@ -39,14 +38,7 @@ for i in range(p):
     sigma_i[i]=sigmamatrix[i,i]
 sigma_i=np.sqrt(sigma_i)
 
-MSE=SSE[0,0]/(n-p-1)
-# Calculamos el MSR
-MSR=SSR[0,0]/p
-# Calculamos el MST
-MST=SST[0,0]/(n-1)
-
 F=(Rsq*(n-p-1))/((1-Rsq)*p)
-print(F)
 
 
 Rango=0.9 # se define un rango, es decir cuanto porcentaje de la curva se quiere
@@ -61,7 +53,6 @@ if F > Ftest:
         else:
             P_i[i]=0
 else:
-    print("paila")
     quit()
     
 p_prime= int(np.sum(P_i))
@@ -86,23 +77,8 @@ SSE1_new=np.matmul(np.identity(n)-Hhat_new,Y)
 SSE_new=np.matmul(YT,SSE1_new)
 
 Rsq_new=SSR_new[0,0]/SST_new[0,0]
-print(Rsq_new)
-
-sigma2_new=SSE_new[0,0]/(n-1.)
-sigmamatrix_new=sigma2_new*Inv_new
-sigma_i_new=np.zeros(p_prime)
-for i in range(p_prime):
-    sigma_i_new[i]=sigmamatrix_new[i,i]
-sigma_i_new=np.sqrt(sigma_i_new)
-
-MSE_new=SSE_new[0,0]/(n-p_prime-1)
-# Calculamos el MSR
-MSR_new=SSR_new[0,0]/p_prime
-# Calculamos el MST
-MST_new=SST_new[0,0]/(n-1)
 
 F_new=(Rsq_new*(n-p_prime-1))/((1-Rsq_new)*p_prime)
-print(F_new)
 
 
 
