@@ -82,6 +82,6 @@ F_new=(Rsq_new*(n-p_prime-1))/((1-Rsq_new)*p_prime)
 
 
 
-f = open ('datos.txt','a')
-f.write('\n' + str(Rsq) + ' ' + str(F) + ' ' + str(Rsq_new) + ' ' + str(F_new))
-f.close()
+archivo = open ('datos.txt','a')
+archivo.write('\n' + str(Rsq) + ' ' + str(F) + ' ' + str(Rsq_new) + ' ' + str(F_new))
+archivo.close()
